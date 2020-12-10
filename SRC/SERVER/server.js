@@ -15,9 +15,14 @@ module.exports = class Server {
 		this.server.use(express.json())
 		this.server.use(morgan('dev'))
 		this.server.use(express.urlencoded({ extended: false }))
+		this.server.use(require('../ROUTER/checkLogin'))
 	}
 
-	router() {}
+	router() {
+		this.server.use('/api/signup', require('../ROUTER/signup'))
+		this.server.use('/api/login', require('../ROUTER/login'))
+		this.server.use('/api/getuserlogin', require('../ROUTER/getUserLogin'))
+	}
 
 	execute() {
 		this.midelware()
