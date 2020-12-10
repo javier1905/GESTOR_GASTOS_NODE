@@ -22,6 +22,8 @@ module.exports = class Server {
 		this.server.use('/api/signup', require('../ROUTER/signup'))
 		this.server.use('/api/login', require('../ROUTER/login'))
 		this.server.use('/api/getuserlogin', require('../ROUTER/getUserLogin'))
+		this.server.use('/api/category', require('../ROUTER/categorias'))
+		this.server.use('/api/operation', require('../ROUTER/operaciones'))
 	}
 
 	execute() {
